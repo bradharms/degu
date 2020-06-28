@@ -6,4 +6,4 @@ A content management system based on Loopback 4.
 
 # Project Management Board
 
-[![GitKraken GloBoard](https://www.gitkraken.com/img/index/glo-circle-logo-2.svg)](https://app.gitkraken.com/glo/board/Xvg5skLUMAAREd1b)
+[GitKraken GloBoard](https://app.gitkraken.com/glo/board/Xvg5skLUMAAREd1b)
