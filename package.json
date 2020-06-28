@@ -1,0 +1,11 @@
+{
+  "name": "degu",
+  "version": "0.0.0-alpha1",
+  "description": "Content management system built on top of Loopback 4.",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brad K. Harms",
+  "license": "ISC"
+}
