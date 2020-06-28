@@ -1,6 +1,5 @@
-import {ApplicationConfig, DeguApplication} from './application';
-
-export * from './application';
+import {ApplicationConfig} from '@loopback/core';
+import {DeguApplication} from 'degu/core';
 
 export async function main(options: ApplicationConfig = {}) {
   const app = new DeguApplication(options);

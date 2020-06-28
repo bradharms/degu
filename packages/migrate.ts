@@ -1,4 +1,4 @@
-import {DeguApplication} from './application';
+import {DeguApplication} from './core';
 
 export async function migrate(args: string[]) {
   const existingSchema = args.includes('--rebuild') ? 'drop' : 'alter';

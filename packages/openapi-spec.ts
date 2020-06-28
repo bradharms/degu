@@ -1,5 +1,5 @@
 import {ApplicationConfig} from '@loopback/core';
-import {DeguApplication} from './application';
+import {DeguApplication} from './core';
 
 /**
  * Export the OpenAPI spec from the application

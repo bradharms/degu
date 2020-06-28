@@ -6,7 +6,7 @@
     "loopback-application",
     "loopback"
   ],
-  "main": "dist/index.js",
+  "main": "dist/boot.js",
   "types": "dist/index.d.ts",
   "engines": {
     "node": ">=10.16"
@@ -28,7 +28,7 @@
     "migrate": "node ./dist/migrate",
     "openapi-spec": "node ./dist/openapi-spec",
     "prestart": "npm run build",
-    "start": "node -r source-map-support/register .",
+    "start": "node -r source-map-support/register -r tsconfig-paths/register .",
     "clean": "lb-clean dist *.tsbuildinfo .eslintcache"
   },
   "repository": {
@@ -50,6 +50,7 @@
     "@loopback/rest": "^5.1.2",
     "@loopback/rest-explorer": "^2.2.5",
     "@loopback/service-proxy": "^2.3.3",
+    "tsconfig-paths": "^3.9.0",
     "tslib": "^2.0.0"
   },
   "devDependencies": {

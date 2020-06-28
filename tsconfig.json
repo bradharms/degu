@@ -3,7 +3,25 @@
   "extends": "@loopback/build/config/tsconfig.common.json",
   "compilerOptions": {
     "outDir": "dist",
-    "rootDir": "src"
+    "rootDir": "packages",
+    "paths": {
+      "degu/*": [
+        "packages/*"
+      ]
+    },
+    "baseUrl": ".",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "alwaysStrict": true,
+    "esModuleInterop": true,
+    "incremental": true,
+    "jsx": "react",
+    "noImplicitAny": true
   },
-  "include": ["src"]
+  "include": [
+    "packages/**/*.tsx",
+    "packages/**/*.ts",
+    "packages/**/*.js",
+    "packages/**/*.ts.d"
+  ]
 }

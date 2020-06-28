@@ -16,6 +16,8 @@
     "**/.svn": true,
     "**/CVS": true,
     "dist": true,
+    "node_modules": true,
+    "tsconfig.tsbuildinfo": true
   },
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,

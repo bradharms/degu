@@ -8,12 +8,12 @@ import {
   RequestContext,
   RestBindings,
   Send,
-  SequenceHandler,
+  SequenceHandler
 } from '@loopback/rest';
 
 const SequenceActions = RestBindings.SequenceActions;
 
-export class MySequence implements SequenceHandler {
+export default class DeguSequence implements SequenceHandler {
   /**
    * Optional invoker for registered middleware in a chain.
    * To be injected via SequenceActions.INVOKE_MIDDLEWARE.

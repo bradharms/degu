@@ -1,5 +1,5 @@
 import {Client} from '@loopback/testlab';
-import {DeguApplication} from '../..';
+import {DeguApplication} from '../../core';
 import {setupApplication} from './test-helper';
 
 describe('HomePage', () => {
