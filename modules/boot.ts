@@ -1,7 +1,21 @@
 import {ApplicationConfig} from '@loopback/core';
-import {DeguApplication} from 'degu/core';
+import fs from 'fs';
+import path from 'path';
+import * as tsconfigPaths from 'tsconfig-paths';
 
 export async function main(options: ApplicationConfig = {}) {
+  const tsconfig = JSON.parse(
+    fs.readFileSync(
+      path.resolve(__dirname, '../tsconfig.json')
+    ).toString()
+  );
+  tsconfigPaths.register({
+    paths: tsconfig.compilerOptions.paths,
+    baseUrl: path.resolve(__dirname, '..')
+  });
+
+  const {DeguApplication} = await import('degu/core');
+
   const app = new DeguApplication(options);
   await app.boot();
   await app.start();

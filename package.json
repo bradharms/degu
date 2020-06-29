@@ -6,30 +6,34 @@
     "loopback-application",
     "loopback"
   ],
-  "main": "dist/boot.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/modules/boot.js",
+  "types": "dist/modules/index.d.ts",
   "engines": {
     "node": ">=10.16"
   },
   "scripts": {
-    "build": "lb-tsc",
     "build:watch": "lb-tsc --watch",
-    "lint": "npm run prettier:check && npm run eslint",
-    "lint:fix": "npm run eslint:fix && npm run prettier:fix",
-    "prettier:cli": "lb-prettier \"**/*.ts\" \"**/*.js\"",
-    "prettier:check": "npm run prettier:cli -- -l",
-    "prettier:fix": "npm run prettier:cli -- --write",
-    "eslint": "lb-eslint --report-unused-disable-directives .",
-    "eslint:fix": "npm run eslint -- --fix",
-    "pretest": "npm run clean && npm run build",
-    "posttest": "npm run lint",
+    "build": "run-s build:ts copy:**",
+    "build:ts": "lb-tsc",
+    "clean": "lb-clean dist *.tsbuildinfo .eslintcache",
+    "copy:public": "copyfiles \"public/**\" dist",
+    "copy:tsconfig": "copyfiles tsconfig.json dist",
+    "copy:modules:json": "copyfiles \"modules/**/*.json\" dist",
     "docker:build": "docker build -t degu .",
     "docker:run": "docker run -p 3000:3000 -d degu",
+    "eslint:fix": "npm run eslint -- --fix",
+    "eslint": "lb-eslint --report-unused-disable-directives .",
+    "lint:fix": "npm run eslint:fix && npm run prettier:fix",
+    "lint": "npm run prettier:check && npm run eslint",
     "migrate": "node ./dist/migrate",
     "openapi-spec": "node ./dist/openapi-spec",
+    "posttest": "npm run lint",
     "prestart": "npm run build",
-    "start": "node -r source-map-support/register -r tsconfig-paths/register .",
-    "clean": "lb-clean dist *.tsbuildinfo .eslintcache"
+    "pretest": "npm run clean && npm run build",
+    "prettier:check": "npm run prettier:cli -- -l",
+    "prettier:cli": "lb-prettier \"**/*.ts\" \"**/*.js\"",
+    "prettier:fix": "npm run prettier:cli -- --write",
+    "start": "node ."
   },
   "repository": {
     "type": "git"
@@ -39,7 +43,7 @@
   "files": [
     "README.md",
     "dist",
-    "src",
+    "modules",
     "!*/__tests__"
   ],
   "dependencies": {
@@ -50,16 +54,18 @@
     "@loopback/rest": "^5.1.2",
     "@loopback/rest-explorer": "^2.2.5",
     "@loopback/service-proxy": "^2.3.3",
+    "npm-run-all": "^4.1.5",
     "tsconfig-paths": "^3.9.0",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
     "@loopback/build": "^6.0.0",
-    "source-map-support": "^0.5.19",
+    "@loopback/eslint-config": "^8.0.2",
     "@loopback/testlab": "^3.1.8",
     "@types/node": "^10.17.26",
-    "@loopback/eslint-config": "^8.0.2",
+    "copyfiles": "^2.3.0",
     "eslint": "^7.3.1",
+    "source-map-support": "^0.5.19",
     "typescript": "~3.9.5"
   }
 }

@@ -20,7 +20,7 @@ export default class DeguApplication extends BootMixin(
     this.sequence(DeguSequence);
 
     // Set up default home page
-    this.static('/', path.join(__dirname, '../../../public'));
+    this.static('/', path.join(__dirname, '../../public'));
 
     // Customize @loopback/rest-explorer configuration here
     this.configure(RestExplorerBindings.COMPONENT).to({
@@ -28,7 +28,7 @@ export default class DeguApplication extends BootMixin(
     });
     this.component(RestExplorerComponent);
 
-    this.projectRoot = path.resolve(__dirname, '../..');
+    this.projectRoot = path.resolve(__dirname, '..');
     // Customize @loopback/boot Booter Conventions here
     this.bootOptions = {
       controllers: {
